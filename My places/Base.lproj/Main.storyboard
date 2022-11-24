@@ -68,6 +68,7 @@
                                     <outlet property="locationLabel" destination="ffn-wn-7gR" id="8w5-5b-Cdh"/>
                                     <outlet property="nameLabel" destination="7MI-zc-uDg" id="40W-0C-xsa"/>
                                     <outlet property="typeLabel" destination="xRK-rw-8mc" id="zRe-FH-NuT"/>
+                                    <segue destination="3LN-Y7-qLa" kind="show" identifier="showDetail" id="99O-vZ-a0i"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -76,7 +77,7 @@
                             <outlet property="delegate" destination="RhD-49-pCT" id="paG-2w-NSg"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="My Places" id="hpI-Og-tVC">
+                    <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="hpI-Og-tVC">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ab9-A5-RVf">
                             <connections>
                                 <segue destination="Sel-D7-c1h" kind="presentation" modalTransitionStyle="crossDissolve" id="q0r-oi-c6F"/>
@@ -232,7 +233,7 @@
                             <outlet property="delegate" destination="3LN-Y7-qLa" id="O6F-VN-hdZ"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="New Place" id="GZj-bL-mIg">
+                    <navigationItem key="navigationItem" title="New Place" largeTitleDisplayMode="always" id="GZj-bL-mIg">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="6Hi-I7-rM4">
                             <connections>
                                 <action selector="cancelAction:" destination="3LN-Y7-qLa" id="XAU-HV-vuU"/>
@@ -261,8 +262,8 @@
         <scene sceneID="AJA-xS-AkK">
             <objects>
                 <navigationController id="OLl-3d-WJs" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="C8K-HO-85q">
-                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="C8K-HO-85q">
+                        <rect key="frame" x="0.0" y="48" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="30"/>
@@ -295,6 +296,9 @@
             <point key="canvasLocation" x="1557.9710144927537" y="-242.41071428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="99O-vZ-a0i"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="PictureIcon" width="1200" height="1200"/>
         <systemColor name="systemBackgroundColor">
