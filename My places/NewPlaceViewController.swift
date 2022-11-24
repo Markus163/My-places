@@ -9,55 +9,92 @@ import UIKit
 
 class NewPlaceViewController: UITableViewController, UINavigationControllerDelegate {
     
+    var imageIsChanged = false
     
-    @IBOutlet weak var imageOfPlace: UIImageView!
+    @IBOutlet weak var placeImage: UIImageView!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var placeName: UITextField!
+    @IBOutlet weak var placeLocation: UITextField!
+    @IBOutlet weak var placeType: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.tableFooterView = UIView()
-        
+        saveButton.isEnabled = false
+        placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
-
-   //MARK: - Table View Deligate
+    
+    //MARK: - Table View Deligate
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if indexPath.row == 0 {
             let cameraIcon = #imageLiteral(resourceName: "PhotoIc")
-                let photoIcon = #imageLiteral(resourceName: "PictIc")
+            let photoIcon = #imageLiteral(resourceName: "PictIc")
             let actionSheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
             let camera = UIAlertAction(title: "Camera", style: .default) { _ in
                 self.chooseImagePicker(source: .camera)
             }
             camera.setValue(cameraIcon, forKey: "image")
-            //camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+            camera.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
             let photo = UIAlertAction(title: "Photo", style: .default) { _ in
                 self.chooseImagePicker(source: .photoLibrary)
             }
             photo.setValue(photoIcon, forKey: "image")
             let cancel = UIAlertAction(title: "Cancel", style: .cancel)
-            //photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
+            photo.setValue(CATextLayerAlignmentMode.left, forKey: "titleTextAlignment")
             actionSheet.addAction(camera)
             actionSheet.addAction(photo)
             actionSheet.addAction(cancel)
             present(actionSheet, animated: true)
         } else {
-            view.endEditing(true)        }
+            view.endEditing(true)
+        }
     }
-
-}
-
-//MARK: - Text Fieald Delegate
-
-extension NewPlaceViewController: UITextFieldDelegate {
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-        return true
+    func saveNewPlace() {
+        
+        var image: UIImage?
+        
+        if imageIsChanged {
+            image = placeImage.image
+        } else {
+            image = #imageLiteral(resourceName: "PictureIcon")
+        }
+        let imageData = image?.pngData()
+        let newPlace = Place(name: placeName.text!,
+                             location: placeLocation.text,
+                             type: placeType.text,
+                             imageData: imageData)
+        
+        StorageManager.saveObject(newPlace)
+        
     }
+    
+    @IBAction func cancelAction(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
 }
-
+    
+    //MARK: - Text Fieald Delegate
+    
+    extension NewPlaceViewController: UITextFieldDelegate {
+        
+        func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+            textField.resignFirstResponder()
+            return true
+        }
+        
+        @objc private func textFieldChanged() {
+            if placeName.text?.isEmpty == false {
+                saveButton.isEnabled = true
+            } else {
+                saveButton.isEnabled = false
+            }
+        }
+    }
 //MARK: - Work with action
 
 extension NewPlaceViewController: UIImagePickerControllerDelegate {
@@ -71,10 +108,10 @@ extension NewPlaceViewController: UIImagePickerControllerDelegate {
         }
     }
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        imageOfPlace.image = info[.editedImage] as? UIImage
-        imageOfPlace.contentMode = .scaleAspectFill
-        imageOfPlace.clipsToBounds = true
+        placeImage.image = info[.editedImage] as? UIImage
+        placeImage.contentMode = .scaleAspectFill
+        placeImage.clipsToBounds = true
         dismiss(animated: true)
-    
     }
-}
+    }
+
