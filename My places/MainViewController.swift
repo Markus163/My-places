@@ -75,6 +75,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     //MARK: - Table View Delegate
     
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
      func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
         let place = places[indexPath.row]
