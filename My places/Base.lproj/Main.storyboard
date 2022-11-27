@@ -186,6 +186,7 @@
                         <outlet property="placeLocation" destination="cfJ-Ho-Pzt" id="tai-7q-ryW"/>
                         <outlet property="placeName" destination="Tkw-sa-SIX" id="nP0-Gc-AaG"/>
                         <outlet property="placeType" destination="VyY-dG-Sy9" id="aRv-o8-VE5"/>
+                        <outlet property="ratingControl" destination="Cb4-Ug-kZb" id="MKA-eI-DL2"/>
                         <outlet property="saveButton" destination="m7z-Z6-izR" id="Pwk-2f-c5q"/>
                     </connections>
                 </tableViewController>
@@ -203,15 +204,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="k99-m2-wy7">
-                                <rect key="frame" x="-3" y="130" width="415" height="765"/>
+                                <rect key="frame" x="-4" y="130" width="416" height="765"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="fzT-xs-y8A" customClass="CustomTableViewCell" customModule="My_places" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="415" height="100"/>
+                                        <rect key="frame" x="0.0" y="50" width="416" height="100"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fzT-xs-y8A" id="rhD-BU-HGe">
-                                            <rect key="frame" x="0.0" y="0.0" width="415" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="416" height="100"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="jrI-IQ-ccJ">
@@ -222,22 +223,22 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="a6q-sl-Mec">
-                                                    <rect key="frame" x="168" y="4" width="231" height="93.5"/>
+                                                    <rect key="frame" x="168" y="4" width="232" height="93.5"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFf-Ci-jYT">
-                                                            <rect key="frame" x="0.0" y="0.0" width="231" height="24"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="232" height="24"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fiZ-ww-rcH">
-                                                            <rect key="frame" x="0.0" y="38" width="231" height="22"/>
+                                                            <rect key="frame" x="0.0" y="38" width="232" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Type" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v47-tG-YGd">
-                                                            <rect key="frame" x="0.0" y="74" width="231" height="19.5"/>
+                                                            <rect key="frame" x="0.0" y="74" width="232" height="19.5"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
