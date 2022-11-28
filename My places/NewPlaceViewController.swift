@@ -6,11 +6,13 @@
 //
 
 import UIKit
+import Cosmos
 
 class NewPlaceViewController: UITableViewController, UINavigationControllerDelegate {
     
     var currentPlace: Place!
     var imageIsChanged = true
+    var currentRating = 0.0
     
     @IBOutlet weak var placeImage: UIImageView!
     @IBOutlet weak var saveButton: UIBarButtonItem!
@@ -18,6 +20,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
     @IBOutlet weak var placeLocation: UITextField!
     @IBOutlet weak var placeType: UITextField!
     @IBOutlet weak var ratingControl: RaitingControl!
+    @IBOutlet weak var cosmosView: CosmosView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +32,10 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
         saveButton.isEnabled = false
         placeName.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         setupEditScreen()
+        cosmosView.settings.fillMode = .half
+        cosmosView.didTouchCosmos = { rating in
+            self.currentRating = rating
+        }
     }
     
     //MARK: - Table View Deligate
@@ -59,21 +66,26 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
         }
     }
     
+    //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier != "showMap" { return }
+        let mapVC = segue.destination as! MapViewController
+        mapVC.place.name = placeName.text!
+        mapVC.place.location = placeLocation.text
+        mapVC.place.type = placeType.text
+        mapVC.place.imageData = placeImage.image?.pngData()
+    }
+    
     func savePlace() {
         
-        var image: UIImage?
-        
-        if imageIsChanged {
-            image = placeImage.image
-        } else {
-            image = #imageLiteral(resourceName: "PictureIcon")
-        }
+        let image = imageIsChanged ? placeImage.image : #imageLiteral(resourceName: "PictureIcon")
         let imageData = image?.pngData()
         let newPlace = Place(name: placeName.text!,
                              location: placeLocation.text,
                              type: placeType.text,
                              imageData: imageData,
-                             rating: Double(ratingControl.rating))
+                             rating: currentRating)
         
         if currentPlace != nil {
             try! realm.write {
@@ -100,7 +112,7 @@ class NewPlaceViewController: UITableViewController, UINavigationControllerDeleg
             placeName.text = currentPlace?.name
             placeLocation.text = currentPlace?.location
             placeType.text = currentPlace?.type
-            ratingControl.rating = Int(currentPlace.rating)
+            cosmosView.rating = currentPlace.rating
             
         }
         

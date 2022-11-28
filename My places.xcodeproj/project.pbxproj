@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		448139C97B7E4D9725403B09 /* Pods_My_places.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E39962793860EF03585762E /* Pods_My_places.framework */; };
+		9719F25F293502E1000E97E3 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9719F25E293502E1000E97E3 /* MapViewController.swift */; };
 		975F6A76292B9C470017A698 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975F6A75292B9C470017A698 /* AppDelegate.swift */; };
 		975F6A78292B9C470017A698 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 975F6A77292B9C470017A698 /* SceneDelegate.swift */; };
 		975F6A7D292B9C470017A698 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 975F6A7B292B9C470017A698 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		0E39962793860EF03585762E /* Pods_My_places.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_My_places.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9719F25E293502E1000E97E3 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		975F6A72292B9C470017A698 /* My places.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My places.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		975F6A75292B9C470017A698 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		975F6A77292B9C470017A698 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				975F6A89292BA0A30017A698 /* MainViewController.swift */,
 				975F6A8F292D1C2C0017A698 /* NewPlaceViewController.swift */,
 				975F6A8B292CF8040017A698 /* CustomTableViewCell.swift */,
+				9719F25E293502E1000E97E3 /* MapViewController.swift */,
 				97C92CC82933AC4F002E9FCF /* RatingControl.swift */,
 				975F6A77292B9C470017A698 /* SceneDelegate.swift */,
 				975F6A8D292CFF450017A698 /* PlaceModel.swift */,
@@ -225,6 +228,7 @@
 				975F6A90292D1C2C0017A698 /* NewPlaceViewController.swift in Sources */,
 				975F6A76292B9C470017A698 /* AppDelegate.swift in Sources */,
 				975F6A92292E7A470017A698 /* StorageManager.swift in Sources */,
+				9719F25F293502E1000E97E3 /* MapViewController.swift in Sources */,
 				975F6A8E292CFF450017A698 /* PlaceModel.swift in Sources */,
 				975F6A8C292CF8040017A698 /* CustomTableViewCell.swift in Sources */,
 				97C92CC92933AC4F002E9FCF /* RatingControl.swift in Sources */,
@@ -395,7 +399,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -426,7 +430,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

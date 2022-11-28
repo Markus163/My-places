@@ -30,7 +30,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        segmentedControl.selectedSegmentIndex = 0
         places = realm.objects(Place.self)
         
         //Setup the Search Controller
@@ -49,27 +49,21 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
          if isFiltring {
              return filtredPlaces.count
          }
-        return places.isEmpty ? 0 : places.count
+        return places.count
     }
     
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! CustomTableViewCell
-
-        var place = Place()
         
-         if isFiltring {
-             place = filtredPlaces[indexPath.row]
-         } else {
-             place = places[indexPath.row]
-         }
+        let place = isFiltring ? filtredPlaces[indexPath.row] : places[indexPath.row]
          
         cell.nameLabel.text = place.name
         cell.locationLabel.text = place.location
         cell.typeLabel.text = place.type
         cell.imageOfPlace.image = UIImage(data: place.imageData!)
-        cell.imageView?.layer.cornerRadius = cell.frame.height / 2
-        cell.imageView?.clipsToBounds = true
+        cell.cosmosView.rating = place.rating
+         
         return cell
     }
     
@@ -96,12 +90,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
      override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
          if segue.identifier == "showDetail" {
              guard let indexPath = tableView.indexPathForSelectedRow else { return }
-             let place: Place
-             if isFiltring {
-                 place = filtredPlaces[indexPath.row]
-             } else {
-                 place = places[indexPath.row]
-             }
+             let place = isFiltring ? filtredPlaces[indexPath.row] : places[indexPath.row]
              let newPlaceVC = segue.destination as! NewPlaceViewController
              newPlaceVC.currentPlace = place
              
@@ -119,6 +108,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func sortSelection(_ sender: UISegmentedControl) {
         sorting()
     }
+    
     @IBAction func reversedSorting(_ sender: Any) {
         ascendingSorting.toggle()
         if ascendingSorting {
