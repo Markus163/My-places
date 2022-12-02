@@ -8,7 +8,7 @@ You can create a new place card: image, name, location, type, rating.
 
 You can set a route to a place in the app.
 
-In this project I used Realm, MapKit, the interface was developed in Storyboard.
+In this project I used Realm, MapKit, dependence with CocoaPods (Cosmos), the interface was developed in Storyboard.
 
 
 ![Simulator Screen Shot - iPhone 11 - 2022-12-02 at 18 19 48](https://user-images.githubusercontent.com/106093762/205344186-14a50c4a-2e6d-4f9e-abf0-baed529ac111.png)
