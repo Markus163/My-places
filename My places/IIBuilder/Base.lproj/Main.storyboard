@@ -231,6 +231,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cosmosView" destination="GKA-Zf-803" id="uWl-Na-OwD"/>
+                        <outlet property="locationButton" destination="fvF-fh-58e" id="sig-pL-Urm"/>
                         <outlet property="placeImage" destination="cVb-Rk-HCf" id="wf1-Dm-4SW"/>
                         <outlet property="placeLocation" destination="cfJ-Ho-Pzt" id="tai-7q-ryW"/>
                         <outlet property="placeName" destination="Tkw-sa-SIX" id="nP0-Gc-AaG"/>
