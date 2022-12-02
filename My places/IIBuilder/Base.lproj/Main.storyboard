@@ -231,7 +231,6 @@
                     </navigationItem>
                     <connections>
                         <outlet property="cosmosView" destination="GKA-Zf-803" id="uWl-Na-OwD"/>
-                        <outlet property="locationButton" destination="fvF-fh-58e" id="sig-pL-Urm"/>
                         <outlet property="placeImage" destination="cVb-Rk-HCf" id="wf1-Dm-4SW"/>
                         <outlet property="placeLocation" destination="cfJ-Ho-Pzt" id="tai-7q-ryW"/>
                         <outlet property="placeName" destination="Tkw-sa-SIX" id="nP0-Gc-AaG"/>
@@ -464,7 +463,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="My Places" largeTitleDisplayMode="never" id="EAp-I9-kAc">
-                        <barButtonItem key="leftBarButtonItem" image="slider.vertical.3" catalog="system" id="CqO-IF-LY2">
+                        <barButtonItem key="leftBarButtonItem" image="exchange" id="CqO-IF-LY2">
                             <connections>
                                 <action selector="reversedSorting:" destination="019-KE-NbL" id="433-7E-Kgl"/>
                             </connections>
@@ -541,12 +540,12 @@
     <resources>
         <image name="PictureIcon" width="600" height="600"/>
         <image name="close" width="42.5" height="42.5"/>
+        <image name="exchange" width="21" height="21"/>
         <image name="gps" width="42.5" height="42.5"/>
         <image name="location" width="21" height="21"/>
         <image name="maps" width="42.5" height="42.5"/>
         <image name="next" width="42.5" height="42.5"/>
         <image name="pin" width="42.5" height="42.5"/>
-        <image name="slider.vertical.3" catalog="system" width="128" height="110"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -112,9 +112,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBAction func reversedSorting(_ sender: Any) {
         ascendingSorting.toggle()
         if ascendingSorting {
-            reversedSortingButton.image = #imageLiteral(resourceName: "Strel (1)")
+            reversedSortingButton.image = #imageLiteral(resourceName: "exchange")
         } else {
-            reversedSortingButton.image = #imageLiteral(resourceName: "Strel (2)")
+            reversedSortingButton.image = #imageLiteral(resourceName: "exchange")
         }
         sorting()
     }
