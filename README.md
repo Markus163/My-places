@@ -1,7 +1,6 @@
-# My places
-<hr>---
+## My places
 
-### This project is a collection of different places that you have visited or want to visit (restaurants, cafes, bars, parks, attractions, etc.).
+This project is a collection of different places that you have visited or want to visit (restaurants, cafes, bars, parks, attractions, etc.).
 
 You can create a new place card: image, name, location, type, rating.
 
